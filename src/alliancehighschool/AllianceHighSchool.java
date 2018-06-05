@@ -1,21 +1,33 @@
 package alliancehighschool;
 
-
 public class AllianceHighSchool {
 
-    public static void main(String[] args) {
+    public static void main (String[] args) {
         
-      int [] array; //declare array named array
-      
-      array = new int[10];// create the array object
-      
-      System.out.printf("%s%8s\n", "index", "value");// column headings
-      
-      //output each array elements value
-      
-      for (int counter = 0; counter < array.length; counter++ ){
-          System.out.printf("%5d%8d\n", counter, array[ counter ]);
-      }
-      
-    }  // end main
+        // student input array(more tipically input at runtime)
+        int[] responses = {1,2,5,4,3,5,2,1,3,3,1,4,3,3,3,2,3,3,2,14};
+        
+        //array of frequency counter
+        int[] frequency = new int[6];
+        
+        //for each answer, select responses element and use that value 
+        //as frequency index to detemine element to increment
+        for (int answer = 0; answer < responses.length; answer++){
+            try{
+                ++frequency[responses[answer]];
+            }//end try
+            catch(ArrayIndexOutOfBoundsException e)
+                    {
+                        System.out.println(e);
+                        System.out.printf("responses[%d] = %d\n\n", answer, responses[answer] );
+            }//end catch
+        } //end for
+        
+        System.out.printf("%s10s\n", "Rating", "Frequency");
+        //output each array elements value;
+        for (int rating = 1; rating < frequency.length; rating++){
+            System.out.printf("%6d%10d\n", rating, frequency[rating]);
+        }
+                        
+       }  // end main
 } //end class InitArray
