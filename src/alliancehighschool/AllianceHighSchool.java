@@ -2,32 +2,16 @@ package alliancehighschool;
 
 public class AllianceHighSchool {
 
+    // main method begins program execution
     public static void main (String[] args) {
+         
+        // array of student grades
+        int[] gradesArray = { 87, 68, 94, 100, 83, 78, 85, 91, 76, 87};
         
-        // student input array(more tipically input at runtime)
-        int[] responses = {1,2,5,4,3,5,2,1,3,3,1,4,3,3,3,2,3,3,2,14};
+        GradeBook myGradeBook = new GradeBook("ARTIFICIAL INTELIGENCE", gradesArray);
         
-        //array of frequency counter
-        int[] frequency = new int[6];
+        myGradeBook.displayMessage();
+        myGradeBook.processGrades();
         
-        //for each answer, select responses element and use that value 
-        //as frequency index to detemine element to increment
-        for (int answer = 0; answer < responses.length; answer++){
-            try{
-                ++frequency[responses[answer]];
-            }//end try
-            catch(ArrayIndexOutOfBoundsException e)
-                    {
-                        System.out.println(e);
-                        System.out.printf("responses[%d] = %d\n\n", answer, responses[answer] );
-            }//end catch
-        } //end for
-        
-        System.out.printf("%s10s\n", "Rating", "Frequency");
-        //output each array elements value;
-        for (int rating = 1; rating < frequency.length; rating++){
-            System.out.printf("%6d%10d\n", rating, frequency[rating]);
-        }
-                        
        }  // end main
-} //end class InitArray
+} //end class GradeBookTest
