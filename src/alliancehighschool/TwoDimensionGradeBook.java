@@ -116,6 +116,47 @@ public class TwoDimensionGradeBook {
         {
             for (int grade : studentGrades)
                 ++frequency[ grade/10];
+        } // end outer for
+        
+        // for each grade frequency, print bar in chart
+        for ( int count = 0; count < frequency.length; count++)
+        {
+            // output bar label ("00-09: ", ..., "90 - 99:" ", "100: ")
+            if ( count == 10)
+                System.out.printf("%5d: ", 100);
+            else 
+                System.out.printf("%02d-%02d:",
+                        count * 10, count * 10 +9 );
+            
+            // print bar of astericks
+            for ( int stars = 0; stars < frequency[ count ]; stars++)
+                System.out.println("*");
+            
+            System.out.println(); // start a new line of output
+        }// end outer for
+    }// end method outputBarChart
+    
+    // output the contents of the grades array
+    public void outputGrades()
+    {
+        System.out.println("The grades are :\n");
+        System.out.print("                 ");// align column heads
+        
+        // create a olumn heading for each of the tests
+        for ( int test = 0; test < grades[0].length; test++)
+            System.out.printf("Test %d   ", test + 1);
+        
+        System.out.println("Average"); // student average column heading 
+        
+        // create rows/columns of test representing array grades
+        for ( int student = 0; student < grades.length; student++)
+        {
+            System.out.printf( "Student  %2d ", student + 1 );
+            
+            for (int test : grades[ student ])// output students grade s
+                System.out.printf( "%8d", test);
+            
+            
         }
     }
     
