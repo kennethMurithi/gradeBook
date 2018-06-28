@@ -156,8 +156,10 @@ public class TwoDimensionGradeBook {
             for (int test : grades[ student ])// output students grade s
                 System.out.printf( "%8d", test);
             
-            
-        }
-    }
-    
-}
+            // call method getAverage to calculate student's average grade;
+            //  pass row of grades as argument to getAverage
+            double average = getAverage( grades[ student ]);
+            System.out.printf("%9.2f\n", average);
+        }// end outer for 
+    } // end method outputGrades
+} // end class Grade book
